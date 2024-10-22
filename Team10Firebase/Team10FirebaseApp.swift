@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 @main
 struct Team10FirebaseApp: App {
+
+//    init() {
+//            FirebaseApp.configure()
+//    }
+  
+  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView() // Your app's content
         }
     }
 }
