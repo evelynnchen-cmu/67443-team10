@@ -58,7 +58,7 @@ All JSON files are located in the `/data` folder and are used to define the core
         - completedQuiz: Boolean indicating if a quiz was completed on that day.
         - pointsAwarded: Number of points awarded for the completed quiz.
 
-3. MCQuestion
+### 3. MCQuestion
 ```json
 {
   "messageID": "UUID",
@@ -79,7 +79,7 @@ All JSON files are located in the `/data` folder and are used to define the core
         - potentialAnswers: List of possible answers.
         - correctAnswer: The correct answer that matches one of the potential answers.
 
-4. Note
+### 4. Note
 ```json
 {
   "noteID": "UUID",
@@ -101,7 +101,7 @@ All JSON files are located in the `/data` folder and are used to define the core
     - courseID: Reference to the course associated with the note.
     - fileLocation: File path from home as a string.
 
-5. Course
+### 5. Course
 ```json
 {
   "courseID": "UUID",
@@ -119,3 +119,121 @@ All JSON files are located in the `/data` folder and are used to define the core
     - notes: List of note IDs located within the course.
     - fileLocation: File path from home as a string.
 
+### 6. Folder
+```json
+{
+  "folderID": "UUID",
+  "folderName": "Capital One Mentor Meeting Notes",
+  "courseID": "UUID",
+  "notes": ["UUID1", "UUID2"],
+  "fileLocation": "/67443/capital_one_mentor_meeting_notes/",
+  "recentNoteSummary": {
+    "noteID": "UUID",
+    "title": "10/21/2024 Meeting",
+    "summary": "AI generated summary of most recent meeting.",
+    "createdAt": "2024-10-21T12:00:00Z"
+  }
+}
+```
+- Purpose: Organizes notes into folders.
+- Attributes:
+    - folderID: Unique identifier for the folder.
+    - folderName: Name of the folder.
+    - courseID: Reference to the course associated with the folder.
+    - notes: List of note IDs contained in the folder.
+    - fileLocation: File path from home as a string.
+    - recentNoteSummary: JSON object containing details of the most recent note, including:
+        - noteID: ID of the note.
+        - title: Title of the note.
+        - summary: Summary of the note.
+        - createdAt: Timestamp of when the note was created.
+
+### 7. User
+```json
+{
+  "id": "UUID",
+  "name": "John Doe",
+  "notifications": ["UUID1", "UUID2"],
+  "streak": {
+    "userID": "UUID",
+    "streakPoints": 200,
+    "currentStreakLength": 5,
+    "lastQuizCompletedAt": "2024-10-21T12:00:00Z"
+  }
+}
+```
+- Purpose: Represents a user in the application.
+- Attributes:
+    - id: Unique identifier for the user.
+    - name: Name of the user.
+    - notifications: List of notification IDs associated with the user.
+    - streak: Streak object containing streak information.
+
+### 8. Quiz
+```json
+{
+  "quizID": "UUID",
+  "userID": "UUID",
+  "noteID": "UUID",
+  "questions": ["UUID1", "UUID2"],
+  "score": 100,
+  "passed": true,
+  "reattempting": false,
+  "completedAt": "2024-10-21T12:00:00Z"
+}
+```
+- Purpose: Stores information about user quizzes.
+- Attributes:
+    - quizID: Unique identifier for the quiz.
+    - userID: Reference to the user who completed the quiz.
+    - noteID: Reference to the note associated with the quiz.
+    - questions: List of multiple-choice question IDs included in the quiz.
+    - score: Score achieved by the user.
+    - passed: Boolean indicating if the user passed the quiz.
+    - reattempting: Boolean indicating if the user is re-attempting the quiz.
+    - completedAt: Timestamp for when the quiz was completed.
+
+### 9. Chat
+```json
+{
+  "chatID": "UUID",
+  "lastUpdated": "2024-10-21T12:00:00Z",
+  "savedMessages": [
+    {
+      "messageID": "UUID",
+      "noteID": "UUID",
+      "content": "Hello, this is a message."
+    },
+    {
+      "messageID": "UUID",
+      "noteID": "UUID",
+      "content": "Another message content."
+    }
+  ]
+}
+```
+- Purpose: Represents a chat conversation in the application.
+- Attributes:
+    - chatID: Unique identifier for the chat.
+    - lastUpdated: Timestamp for when the chat was last updated (ISO 8601 format).
+    - savedMessages: List of message objects, each containing:
+        - messageID: Unique identifier for the message.
+        - noteID: Reference to the note where the message is saved.
+        - content: Content of the message.
+
+
+### 10. Message
+```json
+{
+  "messageID": "UUID",
+  "messageContent": "Chat message further explaining Firebase setup process.",
+  "saveLocation": {
+    messageID: "/67443/firebase_lecture"
+  }
+}
+```
+- Purpose: Represents a message in the chat.
+- Attributes:
+    - messageID: Unique identifier for the message.
+    - messageContent: Content of the message.
+    - saveLocation: Dictionary where the key is the message ID and the value is the file path where the message is saved.
