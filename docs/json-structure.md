@@ -7,15 +7,14 @@ All JSON files are located in the `/data` folder and are used to define the core
 ### 1. Notification
 ```json
 {
-  "id": "UUID",
+  "id": "e1a2c4d2-4d3f-47b1-90c6-5f9a61d0654f",
   "type": "reminder",
   "scheduledAt": "2024-10-22T10:00:00Z",
-  "message": "time to review the 67443 Firebase lecture from Tuesday!",
-  "quizID": "UUID",
-  "userID": "UUID"
+  "message": "Time to review the 67443 Firebase lecture from Tuesday!",
+  "quizID": "1a84c2f7-758d-4bb4-9a1b-6fb67632e1a2",
+  "userID": "bc65f2d7-3055-4db3-840b-96f21a8c6b6e"
 }
 ```
-
 - Purpose: Handles reminders for review quizzes (spaced repetition).
 - Attributes:
     - id: Unique identifier for the notification.
@@ -26,69 +25,38 @@ All JSON files are located in the `/data` folder and are used to define the core
     - userId: Reference to the user receiving the notification.
 
 
-### 2. Streak
+### 2. MCQuestion
 ```json
 {
-  "userId": "UUID",
-  "streakPoints": 200,
-  "currentStreakLength": 5,  // Num consecutive days
-  "lastQuizCompletedAt": "2024-10-21T12:00:00Z",
-  "activityLog": [
-    {
-      "date": "2024-10-20",
-      "completedQuiz": true,
-      "pointsAwarded": 20
-    },
-    {
-      "date": "2024-10-21",
-      "completedQuiz": true,
-      "pointsAwarded": 20
-    }
-  ]
-}
-```
-- Purpose: Tracks the user's streak and points earned through consistent quiz completion.
-- Attributes:
-    - userID: Unique identifier for the user.
-    - streakPoints: Total points earned.
-    - currentStreak: Number of consecutive days of quiz completion.
-    - lastQuizCompletedAt: Timestamp for the last completed quiz.
-    - activityLog: List of activity log objects containing:
-        - date: Date of the activity.
-        - completedQuiz: Boolean indicating if a quiz was completed on that day.
-        - pointsAwarded: Number of points awarded for the completed quiz.
-
-### 3. MCQuestion
-```json
-{
-  "messageID": "UUID",
+  "id": "b8f91485-bd68-47f6-9f29-457d8ac57a75",
   "questions": [
     {
       "questionText": "What is the capital of France?",
-      "potentialAnswers": ["A. Paris", "B. Baris", "C. Caris", "D. Daris"],
-      "correctAnswer": "A. Paris"
+      "potentialAnswers": ["Paris", "Baris", "Caris", "Daris"],
+      "correctAnswer": 0
     }
   ]
 }
 ```
 - Purpose: Represents multiple-choice questions present in quizzes.
 - Attributes:
-    - messageID: Unique identifier for the question set.
+    - id: Unique identifier for the question set.
     - questions: List of question objects, each containing:
         - questionText: Text of the question.
         - potentialAnswers: List of possible answers.
-        - correctAnswer: The correct answer that matches one of the potential answers.
+        - correctAnswer: The correct answer index.
 
-### 4. Note
+### 3. Note
 ```json
 {
-  "noteID": "UUID",
+  "noteID": "d2b46c71-c0b6-4a2d-ae9b-f6b1a827eae4",
   "title": "Firebase Lecture",
   "summary": "This is a summary of the Firebase lecture.",
   "content": "This is the full content of the note, including parsed saved chat messages, file imports, etc.",
   "createdAt": "2024-10-21T12:00:00Z",
-  "courseID": "UUID",
-  "fileLocation": "/67443/firebase_lecture"
+  "courseID": "f5db67c3-8096-4d18-b4cf-7fd3a87bcf80",
+  "fileLocation": "/67443/firebase_lecture",
+  "lastAccessed": "2024-10-21T12:00:00Z"
 }
 ```
 - Purpose: Stores lecture notes and related content.
@@ -101,13 +69,13 @@ All JSON files are located in the `/data` folder and are used to define the core
     - courseID: Reference to the course associated with the note.
     - fileLocation: File path from home as a string.
 
-### 5. Course
+### 4. Course
 ```json
 {
-  "courseID": "UUID",
+  "courseID": "f5db67c3-8096-4d18-b4cf-7fd3a87bcf80",
   "courseName": "67443: Mobile App Development",
-  "folders": ["UUID1", "UUID2"],
-  "notes": ["UUID1", "UUID2"],
+  "folders": ["a1c9b24d-7696-4e93-8cb6-3b9ab2d8374d", "bd75ec96-83a7-4022-b92a-2ad8c3b9e1c3"],
+  "notes": ["d2b46c71-c0b6-4a2d-ae9b-f6b1a827eae4", "b9fbb67e-ccf4-49ae-9053-8be7c8b1a732"],
   "fileLocation": "/67443/"
 }
 ```
@@ -119,16 +87,16 @@ All JSON files are located in the `/data` folder and are used to define the core
     - notes: List of note IDs located within the course.
     - fileLocation: File path from home as a string.
 
-### 6. Folder
+### 5. Folder
 ```json
 {
-  "folderID": "UUID",
+  "folderID": "a1c9b24d-7696-4e93-8cb6-3b9ab2d8374d",
   "folderName": "Capital One Mentor Meeting Notes",
-  "courseID": "UUID",
-  "notes": ["UUID1", "UUID2"],
+  "courseID": "f5db67c3-8096-4d18-b4cf-7fd3a87bcf80",
+  "notes": ["b9fbb67e-ccf4-49ae-9053-8be7c8b1a732", "6fb4835b-e589-42a2-baff-7ab7f8b30762"],
   "fileLocation": "/67443/capital_one_mentor_meeting_notes/",
   "recentNoteSummary": {
-    "noteID": "UUID",
+    "noteID": "6fb4835b-e589-42a2-baff-7ab7f8b30762",
     "title": "10/21/2024 Meeting",
     "summary": "AI generated summary of most recent meeting.",
     "createdAt": "2024-10-21T12:00:00Z"
@@ -148,18 +116,17 @@ All JSON files are located in the `/data` folder and are used to define the core
         - summary: Summary of the note.
         - createdAt: Timestamp of when the note was created.
 
-### 7. User
+### 6. User
 ```json
 {
-  "id": "UUID",
+  "id": "bc65f2d7-3055-4db3-840b-96f21a8c6b6e",
   "name": "John Doe",
-  "notifications": ["UUID1", "UUID2"],
+  "notifications": ["e1a2c4d2-4d3f-47b1-90c6-5f9a61d0654f", "5c6d8fcb-7854-4b63-9496-d65ef28d2469"],
   "streak": {
-    "userID": "UUID",
-    "streakPoints": 200,
     "currentStreakLength": 5,
     "lastQuizCompletedAt": "2024-10-21T12:00:00Z"
-  }
+  },
+  "courses": ["f5db67c3-8096-4d18-b4cf-7fd3a87bcf80"]
 }
 ```
 - Purpose: Represents a user in the application.
@@ -169,14 +136,13 @@ All JSON files are located in the `/data` folder and are used to define the core
     - notifications: List of notification IDs associated with the user.
     - streak: Streak object containing streak information.
 
-### 8. Quiz
+### 7. Quiz
 ```json
 {
-  "quizID": "UUID",
-  "userID": "UUID",
-  "noteID": "UUID",
-  "questions": ["UUID1", "UUID2"],
-  "score": 100,
+  "quizID": "1a84c2f7-758d-4bb4-9a1b-6fb67632e1a2",
+  "userID": "bc65f2d7-3055-4db3-840b-96f21a8c6b6e",
+  "noteID": "d2b46c71-c0b6-4a2d-ae9b-f6b1a827eae4",
+  "questions": ["b8f91485-bd68-47f6-9f29-457d8ac57a75"],
   "passed": true,
   "reattempting": false,
   "completedAt": "2024-10-21T12:00:00Z"
@@ -188,52 +154,6 @@ All JSON files are located in the `/data` folder and are used to define the core
     - userID: Reference to the user who completed the quiz.
     - noteID: Reference to the note associated with the quiz.
     - questions: List of multiple-choice question IDs included in the quiz.
-    - score: Score achieved by the user.
     - passed: Boolean indicating if the user passed the quiz.
     - reattempting: Boolean indicating if the user is re-attempting the quiz.
     - completedAt: Timestamp for when the quiz was completed.
-
-### 9. Chat
-```json
-{
-  "chatID": "UUID",
-  "lastUpdated": "2024-10-21T12:00:00Z",
-  "savedMessages": [
-    {
-      "messageID": "UUID",
-      "noteID": "UUID",
-      "content": "Hello, this is a message."
-    },
-    {
-      "messageID": "UUID",
-      "noteID": "UUID",
-      "content": "Another message content."
-    }
-  ]
-}
-```
-- Purpose: Represents a chat conversation in the application.
-- Attributes:
-    - chatID: Unique identifier for the chat.
-    - lastUpdated: Timestamp for when the chat was last updated (ISO 8601 format).
-    - savedMessages: List of message objects, each containing:
-        - messageID: Unique identifier for the message.
-        - noteID: Reference to the note where the message is saved.
-        - content: Content of the message.
-
-
-### 10. Message
-```json
-{
-  "messageID": "UUID",
-  "messageContent": "Chat message further explaining Firebase setup process.",
-  "saveLocation": {
-    messageID: "/67443/firebase_lecture"
-  }
-}
-```
-- Purpose: Represents a message in the chat.
-- Attributes:
-    - messageID: Unique identifier for the message.
-    - messageContent: Content of the message.
-    - saveLocation: Dictionary where the key is the message ID and the value is the file path where the message is saved.
