@@ -39,13 +39,9 @@ Some key elements of our application, such as chat messages, will not be stored 
 ```json
 {
   "id": "b8f91485-bd68-47f6-9f29-457d8ac57a75",
-  "questions": [
-    {
-      "questionText": "What is the capital of France?",
-      "potentialAnswers": ["Paris", "Baris", "Caris", "Daris"],
-      "correctAnswer": 0
-    }
-  ]
+  "question": "What is the capital of France?",
+  "potentialAnswers": ["Paris", "Baris", "Caris", "Daris"],
+  "correctAnswer": 0
 }
 ```
 - Purpose: Represents multiple-choice questions present in quizzes.
