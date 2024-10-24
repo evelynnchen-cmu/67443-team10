@@ -59,6 +59,7 @@ Some key elements of our application, such as chat messages, will not be stored 
   "title": "Firebase Lecture",
   "summary": "This is a summary of the Firebase lecture.",
   "content": "This is the full content of the Firebase lecture note, including parsed saved chat messages, file imports, etc.",
+  "images": ["https://firebasestorage.googleapis.com/v0/b/image1", "https://firebasestorage.googleapis.com/v0/b/image2"],
   "createdAt": "2024-10-21T12:00:00Z",
   "courseID": "f5db67c3-8096-4d18-b4cf-7fd3a87bcf80",
   "fileLocation": "/67443/firebase_lecture",
@@ -72,6 +73,7 @@ Some key elements of our application, such as chat messages, will not be stored 
     - title: Title of the note.
     - summary: AI-generated summary of the note's content.
     - content: Full content of the note, including any parsed saved chat messages, file imports, etc.
+    - images: List of original/source images that were parsed and stored in this note. Contains url of image stored/uploaded to Firebase Storage.
     - createdAt: Timestamp for when the note was created.
     - courseID: Reference to the course associated with the note.
     - fileLocation: File path from home as a string.
