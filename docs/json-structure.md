@@ -47,10 +47,9 @@ Some key elements of our application, such as chat messages, will not be stored 
 - Purpose: Represents multiple-choice questions present in quizzes.
 - Attributes:
     - id: Unique identifier for the question set.
-    - questions: List of question objects, each containing:
-        - questionText: Text of the question.
-        - potentialAnswers: List of possible answers.
-        - correctAnswer: The index of the correct answer within potentialAnswers.
+    - questions: Text of the question.
+    - potentialAnswers: List of possible answers.
+    - correctAnswer: The index of the correct answer within potentialAnswers.
 
 ### 3. Note
 ```json
