@@ -39,9 +39,9 @@ Some key elements of our application, such as chat messages, will not be stored 
 ```json
 {
   "id": "b8f91485-bd68-47f6-9f29-457d8ac57a75",
-  "question": "What is the capital of France?",
-  "potentialAnswers": ["Paris", "Baris", "Caris", "Daris"],
-  "correctAnswer": 0
+  "question": "What type of database is Firebase based on?",
+  "potentialAnswers": ["Relational database, like MySQL", "Document database, like MongoDB", "Graph database, like Neo4j", "Key-value store, like Redis"],
+  "correctAnswer": 2
 }
 ```
 - Purpose: Represents multiple-choice questions present in quizzes.
@@ -56,9 +56,9 @@ Some key elements of our application, such as chat messages, will not be stored 
 {
   "noteID": "d2b46c71-c0b6-4a2d-ae9b-f6b1a827eae4",
   "userID": "bc65f2d7-3055-4db3-840b-96f21a8c6b6e",
-  "title": "Firebase Lecture",
-  "summary": "This is a summary of the Firebase lecture.",
-  "content": "This is the full content of the Firebase lecture note, including parsed saved chat messages, file imports, etc.",
+  "title": "Lecture 11",
+  "summary": "Firebase is a comprehensive platform by Google that provides tools and services like authentication, databases, and cloud storage, enabling developers to build, improve, and grow apps. In the context of Swift, Firebase allows iOS developers to easily integrate features such as user authentication, real-time databases (Firestore or Realtime Database), cloud storage, analytics, and push notifications into their iOS applications.",
+  "content": "Firebase\nBased on Document database, like mongo\nListens for changes\nP list (properties) - things they need to connect app to firebase instance\nFirestorm vs real time database - we use firestorm\nAnyCancellable objects\n.compactMap is like map but gets rid of null values and unwraps optionals",
   "images": ["https://firebasestorage.googleapis.com/v0/b/image1", "https://firebasestorage.googleapis.com/v0/b/image2"],
   "createdAt": "2024-10-21T12:00:00Z",
   "courseID": "f5db67c3-8096-4d18-b4cf-7fd3a87bcf80",
@@ -83,7 +83,7 @@ Some key elements of our application, such as chat messages, will not be stored 
 {
   "courseID": "f5db67c3-8096-4d18-b4cf-7fd3a87bcf80",
   "userID": "bc65f2d7-3055-4db3-840b-96f21a8c6b6e",
-  "courseName": "67443: Mobile App Development",
+  "courseName": "67443",
   "folders": ["a1c9b24d-7696-4e93-8cb6-3b9ab2d8374d", "bd75ec96-83a7-4022-b92a-2ad8c3b9e1c3"],
   "notes": ["d2b46c71-c0b6-4a2d-ae9b-f6b1a827eae4", "b9fbb67e-ccf4-49ae-9053-8be7c8b1a732"],
   "fileLocation": "/67443/"
@@ -133,7 +133,7 @@ Some key elements of our application, such as chat messages, will not be stored 
 ```json
 {
   "id": "bc65f2d7-3055-4db3-840b-96f21a8c6b6e",
-  "name": "John Doe",
+  "name": "Guanjie",
   "notifications": ["e1a2c4d2-4d3f-47b1-90c6-5f9a61d0654f", "5c6d8fcb-7854-4b63-9496-d65ef28d2469"],
   "streak": {
     "currentStreakLength": 5,
