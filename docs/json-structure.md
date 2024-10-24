@@ -2,7 +2,18 @@
 
 ## Overview
 
-All JSON files are located in the `/data` folder and are used to define the core data models such as user streaks, multiple-choice questions, and more.
+Our application will consist of the following key collections:
+
+1. Notification
+2. Streak
+3. MCQuestion
+4. Note
+5. Course
+6. Folder
+7. User
+8. Quiz
+9. Chat
+10. Message
 
 ### 1. Notification
 ```json
